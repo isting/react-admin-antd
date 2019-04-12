@@ -80,7 +80,7 @@ module.exports = merge(common, {
     new HtmlWebpackPlugin({
       template: path.join("index.html"),
       filename: 'index.html',
-      title: 'title webpack',
+      title: 'react-admin-antd',
     })
   ]
 })

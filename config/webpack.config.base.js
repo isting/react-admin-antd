@@ -91,7 +91,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: resolve("../index.html"),
       filename: 'index.html',
-      title: 'title webpack',
+      title: 'admin',
       // favicon: resolve("../dist/assets/favicon.ico")
     }),
     new webpack.BannerPlugin('版权所有，翻版必究'),
@@ -105,7 +105,8 @@ module.exports = {
     extensions: [".js", ".jsx", "ts", "tsx", ".css", "less", ".json"],
     alias: {
       "@": resolve("src"),
-      utils: resolve("src/utils")
+      "@utils": resolve("src/utils"),
+      "@views": resolve("src/views")
     },
     modules: ['node_modules']
   }
