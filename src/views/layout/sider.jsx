@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-export default class Home extends Component {
+export default class sider extends Component {
   render() {
-    return (<div>Home</div>)
+    return (<div>sider</div>)
   }
 }
