@@ -1,25 +1,17 @@
-import axios from 'axios';
-import * as constants from './constants';
+import { ADD, MINUS } from './constants'
 
-const changeLogin = () => ({
-	type: constants.CHANGE_LOGIN,
-	value: true
-})
+export const add = () => {
+  return { type: ADD }
+}
+export const minus = () => {
+  return { type: MINUS }
+}
 
-export const logout = () => ({
-	type: constants.LOGOUT,
-	value: false
-})
-
-export const login = (accout, password) => {
-	return (dispatch) => {
-		axios.get('/api/login.json?account=' + accout + '&password=' + password).then((res) => {
-			const result = res.data.data;
-			if (result) {
-				dispatch(changeLogin())
-			}else {
-				alert('登陆失败')
-			}
-		})
-	}
+// 异步的action
+export function asyncAdd () {
+  return dispatch => {
+    setTimeout(() => {
+      dispatch(add())
+    }, 2000)
+  }
 }

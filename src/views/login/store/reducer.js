@@ -1,17 +1,20 @@
-import { fromJS } from 'immutable';
-import * as constants from './constants';
+import { ADD, MINUS } from './constants'
 
-const defaultState = fromJS({
-	login: false
-});
+const INITIAL_STATE = {
+  num: 0
+}
 
-export default (state = defaultState, action) => {
-	switch(action.type) {
-		case constants.CHANGE_LOGIN:
-			return state.set('login', action.value);
-		case constants.LOGOUT:
-			return state.set('login', action.value);
-		default:
-			return state;
-	}
+export default function counter (state = INITIAL_STATE, action) {
+  switch (action.type) {
+    case ADD:
+      return {
+        num: state.num + 1
+      }
+     case MINUS:
+       return {
+         num: state.num - 1
+       }
+     default:
+       return state
+  }
 }
