@@ -14,8 +14,17 @@ module.exports = {
   entry: resolve("../src/index.js"),
   output: {
     publicPath: '',
-    filename: '[hash:8].main.js',
+    filename: '[hash].js',
     path: resolve('../dist')
+  },
+  resolve: {
+    extensions: [".js", ".jsx", "ts", "tsx", ".css", "less", ".json"],
+    alias: {
+      "@": resolve("src"),
+      "@utils": resolve("src/utils"),
+      "@views": resolve("src/views")
+    },
+    modules: ['node_modules']
   },
   module: {
     rules: [
@@ -92,22 +101,14 @@ module.exports = {
       template: resolve("../index.html"),
       filename: 'index.html',
       title: 'admin',
+      favicon: resolve("../public/favicon.ico")
       // favicon: resolve("../dist/assets/favicon.ico")
     }),
-    new webpack.BannerPlugin('版权所有，翻版必究'),
+    new webpack.BannerPlugin('O(∩_∩)O哈哈~'),
     // new ExtractTextPlugin('css/css.css'),
-    new CopyWebpackPlugin([{
+    new CopyWebpackPlugin([{ // 直接搬运静态
       from: resolve('../src/assets'),
       to: resolve('../dist/assets'),
     }])
-  ],
-  resolve: {
-    extensions: [".js", ".jsx", "ts", "tsx", ".css", "less", ".json"],
-    alias: {
-      "@": resolve("src"),
-      "@utils": resolve("src/utils"),
-      "@views": resolve("src/views")
-    },
-    modules: ['node_modules']
-  }
+  ]
 }

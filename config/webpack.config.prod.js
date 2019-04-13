@@ -10,6 +10,9 @@ const PurifyCss = require('purifycss-webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; // 图形显示打包体积大小
 
+function resolve(strPath) {
+  return path.join(__dirname, strPath)
+}
 
 module.exports = merge(common, {
   mode: "production",
@@ -76,9 +79,9 @@ module.exports = merge(common, {
       filename: '[name].[hash].css',
       chunkFilename: '[id].[hash].css'
     }),
-    new BundleAnalyzerPlugin({
-      analyzerMode: "server"
-    })
+    // new BundleAnalyzerPlugin({
+    //   analyzerMode: "server"
+    // })
   ]
 })
 

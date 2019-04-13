@@ -6,28 +6,15 @@ const common = require("./webpack.config.base.js");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+function resolve(strPath) {
+  return path.join(__dirname, strPath)
+}
+
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'cheap-module-source-map',
   module: {
-    rules: [
-      // {
-      //   test: /\.(js|jsx)$/,
-      //   loader: 'eslint-loader',
-      //   enforce: 'pre',
-      //   exclude: /node_modules/,
-      //   options: {
-      //       formatter: require('eslint-friendly-formatter')
-      //   }
-      // },
-      // {
-      //   test: /\.(ts|tsx)?$/,
-      //   enforce: 'pre',
-      //   loader: 'tslint-loader',
-      //   include: path.join(__dirname, '../', 'src'),
-      //   exclude: /node_modules/,
-      // },
-      {
+    rules: [{
         test: /\.css$/,
         use: [
           'style-loader',
@@ -56,7 +43,8 @@ module.exports = merge(common, {
           },
           {
             loader: 'less-loader',
-          }]
+          }
+        ]
       }
     ]
   },
